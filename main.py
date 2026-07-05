@@ -3,8 +3,8 @@ from calculators import (
     monthly_loan_payment,
     return_on_investment,
     monthly_savings_required,
-)
-
+   )
+from csv_exporter import save_result
 
 def get_float(prompt: str) -> float:
     """Safely get a number from the user."""
@@ -45,6 +45,11 @@ def main() -> None:
             compounds = get_int("Compounds per year, for example 12: ")
             result = compound_interest(principal, annual_rate, years, compounds)
             print(f"Future value: {result:,.2f}")
+            save_result(
+                "Compound interest",
+                f"princple={principal}, annual_rate={annual_rate}, years={years}, compound={compounds}" ,
+                f"{result:,.2f}",
+            )
 
         elif choice == "2":
             principal = get_float("Loan amount: ")
@@ -52,12 +57,22 @@ def main() -> None:
             years = get_float("Loan term in years: ")
             result = monthly_loan_payment(principal, annual_rate, years)
             print(f"Monthly payment: {result:,.2f}")
+            save_result(
+                "monthly loan payment",
+                f"principal={principal}, annual_rate={annual_rate}, years={years}",
+                f"{result:,.2f}",
+            )
 
         elif choice == "3":
             initial = get_float("Initial investment value: ")
             final = get_float("Final investment value: ")
             result = return_on_investment(initial, final)
             print(f"ROI: {result * 100:.2f}%")
+            save_result(
+                "Return on investment",
+                f"initial={initial}, final={final}",
+                f"{result * 100:.2f}%" ,
+            )
 
         elif choice == "4":
             goal = get_float("Goal amount: ")
@@ -65,6 +80,11 @@ def main() -> None:
             months = get_int("Months until goal: ")
             result = monthly_savings_required(goal, current, months)
             print(f"Required monthly savings: {result:,.2f}")
+            save_result(
+                "Savings goal",
+                f"goal={goal}, current={current}, months={months}",
+                f"{result:,.2f}",
+            )
 
         elif choice == "5":
             print("Goodbye.")
