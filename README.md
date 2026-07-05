@@ -2,48 +2,20 @@
 
 A beginner-friendly Python project that connects finance knowledge with programming.
 
+This project was built as part of my transition from Finance to Computer Science / AI. It demonstrates Python fundamentals, financial formulas, clean project structure, unit testing, Git, and GitHub documentation.
+
 ## Features
 
 1. Compound interest calculator
 2. Monthly loan payment calculator
 3. Return on investment calculator
 4. Savings goal calculator
+5. CSV export for calculation results
 
-## Why this project matters
-
-This project is designed for a Finance → Computer Science / AI transition path. It shows:
-
-- Python fundamentals
-- Functions
-- User input
-- Basic financial formulas
-- Clean code structure
-- GitHub project documentation
-
-## How to run
-
-```bash
-python main.py
-```
-
-## Project structure
+After each calculation, the program saves the result to a local CSV file:
 
 ```text
-finance-python-calculator/
-├── main.py
-├── calculators.py
-├── README.md
-└── tests/
-    └── test_calculators.py
-```
-
-## Next improvements
-
-- Add charts
-- Add currency formatting
-- Add data export to CSV
-- Build a simple web version
-- Add an LLM assistant later
+results.csv
 # Finance Python Calculator
 
 A beginner-friendly Python project that connects finance knowledge with programming.
